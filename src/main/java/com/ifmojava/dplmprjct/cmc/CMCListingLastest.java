@@ -1,5 +1,7 @@
 package com.ifmojava.dplmprjct.cmc;
 
+import com.google.gson.Gson;
+import com.ifmojava.dplmprjct.Burse;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.NameValuePair;
@@ -18,9 +20,9 @@ import java.util.List;
 
 class CMCListingLatest {
 
-    private static String apiKey = "a47fec7a-2a44-4f60-a72f-f24e10fd89fe";
+    public static String apiKey = "a47fec7a-2a44-4f60-a72f-f24e10fd89fe";
 
-    public static void main(String[] args) {
+    public static Burse ReturnBurse() throws IOException, URISyntaxException {
         String uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         List<NameValuePair> paratmers = new ArrayList<NameValuePair>();
         paratmers.add(new BasicNameValuePair("start","1"));
@@ -35,6 +37,12 @@ class CMCListingLatest {
         } catch (URISyntaxException e) {
             System.out.println("Error: Invalid URL " + e.toString());
         }
+
+        Gson gson = new Gson();
+        Burse burse = gson.fromJson(makeAPICall(uri, paratmers), Burse.class);
+        System.out.println(burse);
+
+        return burse;
     }
 
     public static String makeAPICall(String uri, List<NameValuePair> parameters)
