@@ -1,6 +1,7 @@
 package com.ifmojava.dplmprjct;
 
-import com.ifmojava.dplmprjct.CMCClient.CMCListingLatest;
+
+import com.ifmojava.dplmprjct.cmc.CMCListingLatest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

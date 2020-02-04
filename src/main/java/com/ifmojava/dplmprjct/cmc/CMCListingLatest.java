@@ -18,7 +18,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-class CMCListingLatest {
+public class CMCListingLatest {
 
     public static String apiKey = "a47fec7a-2a44-4f60-a72f-f24e10fd89fe";
 
